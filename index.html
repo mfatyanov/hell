@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Пойдёшь со мной на свидание? 💕</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== Плавающие сердечки на фоне ===== -->
+  <div class="hearts" aria-hidden="true">
+    <span style="left:3%;  font-size:24px; animation-duration:13s;   animation-delay:7.2s">💞</span>
+    <span style="left:9%;  font-size:30px; animation-duration:16s;   animation-delay:2.1s">🥰</span>
+    <span style="left:14%; font-size:17px; animation-duration:11.5s; animation-delay:9.4s">💗</span>
+    <span style="left:19%; font-size:28px; animation-duration:14.5s; animation-delay:4s">💕</span>
+    <span style="left:24%; font-size:20px; animation-duration:17s;   animation-delay:0.5s">💘</span>
+    <span style="left:29%; font-size:32px; animation-duration:12s;   animation-delay:6.8s">🌸</span>
+    <span style="left:34%; font-size:16px; animation-duration:15.5s; animation-delay:3.3s">💖</span>
+    <span style="left:39%; font-size:26px; animation-duration:13.5s; animation-delay:10s">💞</span>
+    <span style="left:43%; font-size:22px; animation-duration:18s;   animation-delay:1.8s">🥰</span>
+    <span style="left:48%; font-size:29px; animation-duration:11s;   animation-delay:8.1s">💗</span>
+    <span style="left:53%; font-size:18px; animation-duration:16.5s; animation-delay:5.5s">💘</span>
+    <span style="left:58%; font-size:25px; animation-duration:12.5s; animation-delay:2.6s">💕</span>
+    <span style="left:63%; font-size:19px; animation-duration:17.5s; animation-delay:9.7s">🌸</span>
+    <span style="left:68%; font-size:31px; animation-duration:14s;   animation-delay:0.9s">💖</span>
+    <span style="left:72%; font-size:21px; animation-duration:13s;   animation-delay:6.2s">💞</span>
+    <span style="left:77%; font-size:27px; animation-duration:15s;   animation-delay:3.7s">🥰</span>
+    <span style="left:82%; font-size:23px; animation-duration:18s;   animation-delay:8.6s">💗</span>
+    <span style="left:87%; font-size:30px; animation-duration:11.5s; animation-delay:4.4s">💘</span>
+    <span style="left:91%; font-size:16px; animation-duration:16s;   animation-delay:1.3s">💕</span>
+    <span style="left:96%; font-size:28px; animation-duration:14.5s; animation-delay:7.9s">💖</span>
+  </div>
+
+  <!-- ===== Прогресс-точки ===== -->
+  <div class="progress" id="progress">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <main class="card">
+
+    <!-- ШАГ 1 — Приглашение -->
+    <section class="step" data-step="0">
+      <div class="emoji-bob">💌</div>
+      <h1>Пупс, пойдёшь на свидание? 💕</h1>
+      <p class="sub" id="nudge">правильный ответ только один 😉</p>
+      <div class="row">
+        <button class="btn btn-yes" data-action="yes">Да! 💖</button>
+        <button class="btn btn-no" id="btnNo" data-action="no">Нет</button>
+      </div>
+    </section>
+
+    <!-- ШАГ 2 — Ресторан -->
+    <section class="step" data-step="1" hidden>
+      <div class="emoji-top">🍽️</div>
+      <h1>Куда пойдём? 💖</h1>
+      <div class="grid" id="restGrid"></div>
+      <button class="btn btn-cta" id="restNext" hidden data-action="to-time">Дальше 💫</button>
+    </section>
+
+    <!-- ШАГ 3 — Время -->
+    <section class="step" data-step="2" hidden>
+      <div class="emoji-top">🕐</div>
+      <h1>Во сколько тебя ждать? 🥰</h1>
+      <div class="pills" id="timePills"></div>
+      <button class="btn btn-cta" id="timeNext" hidden data-action="to-final">Готово 🎉</button>
+    </section>
+
+    <!-- ФИНАЛ -->
+    <section class="step" data-step="3" hidden>
+      <div class="emoji-beat">💖</div>
+      <h1>Свидание назначено!</h1>
+      <p class="sub">Жду тебя, моя жёпка 🍑</p>
+      <div class="summary">
+        <div class="summary-rest" id="sumRest"></div>
+        <div class="summary-time" id="sumTime"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Конфетти ===== -->
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+  <!-- ===== Модалка «Ты уверена?» ===== -->
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal">
+      <div class="modal-img">
+        <img src="./sticker.webp" alt="hell"/>
+      </div>
+      <h2>Ты уверена? 🥺</h2>
+      <p>подумай ещё разочек ☺️</p>
+      <button class="btn btn-modal" data-action="modal-yes">Ладно, да 😏</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
